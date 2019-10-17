@@ -1,0 +1,11 @@
+
+
+body, nav, header, main{ width:100%;}
+
+nav{ background-color: lightgrey;}
+header h1{color:firebrick;}
+main{border: 1px solid red;}
+section{background-color:firebrick; color:white;}
+#menu{display:block;}
+ul{display:none; height:0px; transition: 0.2s ease-out;}
+nav .open{display:flex; height:auto; transition: 0.2s ease-in;}
