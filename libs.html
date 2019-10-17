@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mad Libs</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        @font-face {
+            font-family: Merriweather-serif;
+            src: url('../Merriweather-Regular.ttf')
+        }
+
+        @font-face {
+            font-family: Merriweather-sans;
+            src: url('../MerriweatherSans-Regular.ttf')
+        }
+
+        body {
+            font-family: Merriweather-serif;
+            transition: 0.5s all ease-in-out;
+            height: 100%;
+            background-image: linear-gradient(white, #00bb77, #00bb77, white);
+        }
+
+        header {
+            justify-content: center;
+        }
+
+        header h1 {
+            padding: 10px;
+        }
+
+        #Libs {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        header,
+        main {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            font-family: Merriweather-sans;
+            align-content: center;
+        }
+
+        #words {
+            width: 0px;
+            font-size: 0.2em;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: 0.5s all ease-in;
+        }
+
+        button {
+            margin: 5px 0 5px 0;
+            border: 1px solid lightgrey;
+
+        }
+
+        @media screen and (max-width:800px) {
+            main {
+                display: flex;
+                flex-direction: column;
+            }
+
+            #Libs {
+                width: 100%;
+            }
+
+            #words {
+                margin: 20px 0;
+
+            }
+
+            #create {
+                display: none;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div></div>
+        <h1>Mad Libs</h1>
+        <div></div>
+    </header>
+    <main>
+        <div id="Libs">
+            <div id='forms'>
+                <label>Male</label>
+                <input type="text" id="male">
+                <label>Verb(ending in "ing")</label>
+                <input type="text" id="verb">
+                <label>Noun </label>
+                <input type="text" id="noun">
+                <label>Noun </label>
+                <input type="text" id="noun1">
+                <label>Plural noun </label>
+                <input type="text" id="noun2">
+                <label>Plural Noun</label>
+                <input type="text" id="noun3">
+                <label>Female </label>
+                <input type="text" id="girl">
+                <label>Adjective</label>
+                <input type="text" id="adj1">
+                <label>Adjective</label>
+                <input type="text" id="adj2">
+                <label>Place</label>
+                <input type="text" id="pla">
+                <label>Color</label>
+                <input type="text" id="color">
+            </div>
+
+        </div>
+        <div id="words"></div>
+
+        <div id='LeOptions'> <button onClick='mad()' class="mad">Chaste</button>
+            <button onClick='crime()' class="crime">Crime</button>
+            <button onClick='beach()' class="beach">Beach</button>
+            <button onClick='Hike()' class="hike">Hike</button>
+            <button onClick='Create()' id="create">Create</button>
+        </div>
+    </main>
+
+    <script>
+        function mad() {
+            //
+            var male = document.getElementById('male').value;
+            var verb = document.getElementById('verb').value;
+            var noun1 = document.getElementById('noun1').value;
+            var noun2 = document.getElementById('noun2').value;
+            var noun3 = document.getElementById('noun3').value;
+            var girl = document.getElementById('girl').value;
+            var adj1 = document.getElementById('adj1').value;
+            var adj2 = document.getElementById('adj2').value;
+            var pla = document.getElementById('pla').value;
+            var color = document.getElementById('color').value;
+            //
+
+            var Storie = "Never do anything that could lead to " + noun2 + "." +
+                " Treat other with " + adj1 + ' ' + noun1 + ', not as objects used to satisfy ' +
+                adj2 + " " + noun3 + "." + " Before " + pla + ", do not participate in passionate " + verb + ".";
+
+            var storyboard = document.getElementById('words');
+            storyboard.innerHTML = Storie;
+
+
+            if (screen.width < 700) {
+                storyboard.style.fontSize = '1.3em';
+                storyboard.style.width = "200px";
+            } else {
+                storyboard.style.fontSize = '2em';
+                storyboard.style.width = "500px";
+            }
+
+
+
+
+            document.body.style.backgroundImage = 'linear-gradient(white, white, ' + color + ", white, white)";
+            document.getElementById('forms').style.display = 'none';
+            document.getElementById('create').style.display = 'block';
+        }
+
+
+        function Create() {
+            document.getElementById('forms').style.display = 'block';
+            document.getElementById('create').style.display = 'none';
+            document.getElementById('words').style.width = '0px';
+            document.getElementById('words').innerHTML = '';
+        }
+
+        function crime() {
+            //
+            var male = document.getElementById('male').value;
+            var verb = document.getElementById('verb').value;
+            var noun = document.getElementById('noun').value;
+            var noun1 = document.getElementById('noun1').value;
+            var noun2 = document.getElementById('noun2').value;
+            var noun3 = document.getElementById('noun3').value;
+            var girl = document.getElementById('girl').value;
+            var adj1 = document.getElementById('adj1').value;
+            var adj2 = document.getElementById('adj2').value;
+            var pla = document.getElementById('pla').value;
+            var color = document.getElementById('color').value;
+            //
+
+            var Storie = girl + " was found dead at " + pla + ". She was murdered by a " + noun1 + ". We found a suspect, " + male + " the " + noun +
+                ". We tried to interrogate him by " + adj2 + " " + verb + ", but his face was too " + adj1 + ". After torturing him with " +
+                noun2 + ", he confessed that the killer was affiliated with the gang of " + noun3;
+            var storyboard = document.getElementById('words');
+            storyboard.innerHTML = Storie;
+            if (screen.width < 700) {
+                storyboard.style.fontSize = '1.3em';
+                storyboard.style.width = "200px";
+            } else {
+                storyboard.style.fontSize = '2em';
+                storyboard.style.width = "500px";
+            }
+            document.body.style.backgroundImage = 'linear-gradient(white, white, ' + color + ", white, white)";
+
+            document.getElementById('forms').style.display = 'none';
+            document.getElementById('create').style.display = 'block';
+        }
+
+
+        function beach() {
+            //
+            var male = document.getElementById('male').value;
+            var verb = document.getElementById('verb').value;
+            var noun = document.getElementById('noun').value;
+            var noun1 = document.getElementById('noun1').value;
+            var noun2 = document.getElementById('noun2').value;
+            var noun3 = document.getElementById('noun3').value;
+            var girl = document.getElementById('girl').value;
+            var adj1 = document.getElementById('adj1').value;
+            var adj2 = document.getElementById('adj2').value;
+            var pla = document.getElementById('pla').value;
+            var color = document.getElementById('color').value;
+            //
+
+            var Storie = male + " & " + girl + " decided to go on a beach trip." + "They didn't have any money so they saved up by " + verb + " " + noun2 + ". After saving up, they packed their " + noun + ". " + male + " & " + girl + " drove to the coast of " + pla + ". They surfed some waves and made a sandcastle that looked like a " + adj1 + " " + noun1 + ". After they enjoyed their time while eating their deep fried " + noun3 + ", " + male + " & " + girl + " were washed up by a " + adj2 + " hurricane. The End.";
+            var storyboard = document.getElementById('words');
+            storyboard.innerHTML = Storie;
+            if (screen.width < 700) {
+                storyboard.style.fontSize = '1.3em';
+                storyboard.style.width = "200px";
+            } else {
+                storyboard.style.fontSize = '2em';
+                storyboard.style.width = "500px";
+            }
+            document.body.style.backgroundImage = 'linear-gradient(white, white, ' + color + ", white, white)";
+            document.getElementById('forms').style.display = 'none';
+            document.getElementById('create').style.display = 'block';
+        }
+
+        function Hike() {
+            //
+            var male = document.getElementById('male').value;
+            var verb = document.getElementById('verb').value;
+            var noun = document.getElementById('noun').value;
+            var noun1 = document.getElementById('noun1').value;
+            var noun2 = document.getElementById('noun2').value;
+            var noun3 = document.getElementById('noun3').value;
+            var girl = document.getElementById('girl').value;
+            var adj1 = document.getElementById('adj1').value;
+            var adj2 = document.getElementById('adj2').value;
+            var pla = document.getElementById('pla').value;
+            var color = document.getElementById('color').value;
+
+            //
+
+            var Storie = girl + " wanted to go on a hike so she can tell her friends how much of a " + noun + " she is. All of her friends were too " + adj1 + " to come, so she invited her dumb boyfriend, " + male + ". They started hiking to the top of " + pla + " when suddenly, they encountered a big scary " + noun1 + ". The " + noun1 + " was hungry for " + adj2 + " flesh so it started to chase " + girl + " & " + male + ". Luckily, they scared the " + noun1 + " away by " + verb + " " + noun2 + " & " + noun3 + " at it. They never made it to the top of " + pla + " because they were too " + adj1 + ".";
+            var storyboard = document.getElementById('words');
+            storyboard.innerHTML = Storie;
+            if (screen.width < 700) {
+                storyboard.style.fontSize = '1.3em';
+                storyboard.style.width = "200px";
+            } else {
+                storyboard.style.fontSize = '2em';
+                storyboard.style.width = "500px";
+            }
+
+            document.body.style.backgroundImage = 'linear-gradient(white, white, ' + color + ", white, white)";
+            document.getElementById('forms').style.display = 'none';
+            document.getElementById('create').style.display = 'block';
+        }
+    </script>
+</body>
+
+
+</html>
