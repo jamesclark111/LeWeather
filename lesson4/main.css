@@ -1,11 +1,84 @@
+@font-face {
+    font-family: Montserrat;
+    src: url('Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('Poppins-Regular.ttf');
+
+}
 
 
-body, nav, header, main{ width:100%;}
+body {
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    transition: 0.2s ease-out;
+    font-family: Poppins, Helvetica, sans-serif;
+    align-content: center;
+}
 
-nav{ background-color: lightgrey; text-align: center;}
-header h1{color:firebrick;}
-main{border: 1px solid red;}
-section{background-color:firebrick; color:white;}
-#menu{display:block;}
-ul{display:none; height:0px; transition: 0.2s ease-out; flex: 1 1 1 100%;}
-nav .open{display:flex; height:auto; transition: 0.2s ease-in; flex-direction: column;}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Montserrat, sans-serif;
+}
+
+nav {
+    background-color: lightgrey;
+    text-align: center;
+    padding: 5px;
+    height: 50%;
+
+
+    transition: 0.5s;
+
+}
+
+header h1 {
+    color: firebrick;
+}
+
+main {
+    border: 1px solid red;
+    text-align: center;
+}
+
+section {
+    background-color: firebrick;
+    color: white;
+}
+
+#menu {
+    display: block;
+}
+
+ul {
+    display: none;
+    height: 0px;
+    list-style-type: none;
+    padding: 0px;
+    transition: 0.5s;
+}
+
+.open {
+    display: flex;
+    height: auto;
+    text-align: center;
+    flex-direction: column;
+    transition: all 0.5s;
+}
+
+.open li {
+    flex: 1 1 100%;
+    padding: 2px;
+    transition: 0.5s;
+}
+
+li:hover {
+    color: red;
+}
